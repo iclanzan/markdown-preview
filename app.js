@@ -17,16 +17,20 @@
         client = gapi.client;
     if (!state || !state.ids || !state.ids.length) return;
 
-    client.load('drive', 'v2', function() { console.log(gapi);
+    client.load('drive', 'v2', function() {
       client.drive.files.get({
         'fileId': state.ids[0]
       }).execute(function(fileMeta) {
         var url = fileMeta.downloadUrl;
-        if (url) client.request({
-          path: url
-        }).execute(function(content) {
-          console.log(content);
-        });
+        if (url) {
+          var xhr = new XMLHttpRequest();
+          xhr.open('GET', url);
+          xhr.setRequestHeader('Authorization', 'Bearer ' + gapi.auth.getToken().access_token);
+          xhr.onload = function() {
+            console.log(xhr.responseText);
+          };
+          xhr.send();
+        }
       });
     });
   }
