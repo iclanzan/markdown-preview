@@ -2,7 +2,7 @@
   'use strict';
 
   var clientID = '589507031071.apps.googleusercontent.com',
-      scope = 'https://www.googleapis.com/auth/drive';
+      scope = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.install';
 
   function auth(result) {
     if (result && !result.error) {
