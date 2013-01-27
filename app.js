@@ -13,7 +13,7 @@
   }
 
   function loadFile() {
-    var state = JSON.parse(getParam('state'));
+    var state = JSON.parse(getParam('state') || '""');
     if (!state || !state.ids || !state.ids.length) return;
 
     gapi.client.load('drive', 'v2', function() {
