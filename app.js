@@ -16,11 +16,11 @@
     var state = JSON.parse(getParam('state') || '""');
     if (!state || !state.ids || !state.ids.length) return;
 
-    gapi.client.load('drive', 'v2', function() {
+    gapi.client.load('drive', 'v2', function() { console.log(gapi.client.drive);
       gapi.client.drive.files.get({
         'fileId': state.ids[0]
       }).execute(function(res) {
-        console.log(res);
+
       });
     });
   }
