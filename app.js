@@ -13,14 +13,20 @@
   }
 
   function loadFile() {
-    var state = JSON.parse(getParam('state') || '""');
+    var state = JSON.parse(getParam('state') || '""'),
+        client = gapi.client;
     if (!state || !state.ids || !state.ids.length) return;
 
-    gapi.client.load('drive', 'v2', function() { console.log(gapi);
-      gapi.client.drive.files.get({
+    client.load('drive', 'v2', function() { console.log(gapi);
+      client.drive.files.get({
         'fileId': state.ids[0]
-      }).execute(function(res) {
-
+      }).execute(function(fileMeta) {
+        var url = fileMeta.downloadUrl;
+        if (url) client.request({
+          path: url
+        }).execute(function(content) {
+          console.log(content);
+        });
       });
     });
   }
