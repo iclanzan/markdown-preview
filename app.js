@@ -27,12 +27,16 @@
           xhr.open('GET', url);
           xhr.setRequestHeader('Authorization', 'Bearer ' + gapi.auth.getToken().access_token);
           xhr.onload = function() {
-            console.log(xhr.responseText);
+            render(xhr.responseText);
           };
           xhr.send();
         }
       });
     });
+  }
+
+  function render(content) {
+    root.document.getElementById('article').innerHTML = root.marked(content);
   }
 
   function auth(result) {
