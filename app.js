@@ -3,7 +3,7 @@
 
   var clientID = '589507031071.apps.googleusercontent.com',
       scope = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.install',
-      marked = root.marked, hljs = root.hljs, gapi;
+      marked, hljs, gapi;
 
   function getParam(name) {
     var results = new RegExp('[\\?&]' + name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]') + '=([^&#]*)')
@@ -47,13 +47,16 @@
   }
 
   root.app = function() {
+    gapi = root.gapi;
+    marked = root.marked;
+    hljs = root.hljs;
+
     marked.options({
       highlight: function(code, lang) {
         return lang? hljs.highlight(lang, code).value : code;
       }
     });
 
-    gapi = root.gapi;
     gapi.auth.authorize({'client_id': clientID, 'scope': scope, 'immediate': true}, auth);
   };
 
