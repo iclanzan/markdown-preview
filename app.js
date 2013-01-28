@@ -53,7 +53,10 @@
 
     marked.options({
       highlight: function(code, lang) {
-        return lang? hljs.highlight(lang, code).value : code;
+        if (!lang) return code;
+        if (lang == 'js') lang = 'javascript';
+
+        return hljs.highlight(lang, code).value;
       }
     });
 
