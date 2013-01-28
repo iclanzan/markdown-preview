@@ -3,6 +3,7 @@
 
   var clientID = '589507031071.apps.googleusercontent.com',
       scope = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.install',
+      doc = root.document,
       marked, hljs, gapi;
 
   function getParam(name) {
@@ -28,6 +29,7 @@
           xhr.setRequestHeader('Authorization', 'Bearer ' + gapi.auth.getToken().access_token);
           xhr.onload = function() {
             render(xhr.responseText);
+            doc.title = fileMeta.title;
           };
           xhr.send();
         }
@@ -36,7 +38,7 @@
   }
 
   function render(content) {
-    root.document.getElementById('article').innerHTML = root.marked(content);
+    doc.getElementById('article').innerHTML = root.marked(content);
   }
 
   function auth(result) {
