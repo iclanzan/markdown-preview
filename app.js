@@ -4,13 +4,17 @@
   var clientID = '589507031071.apps.googleusercontent.com',
       scope = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.install',
       doc = root.document,
-      marked, hljs, gapi;
+      marked, hljs, gapi, article;
 
   function getParam(name) {
     var results = new RegExp('[\\?&]' + name.replace(/[\[]/, '\\\[').replace(/[\]]/, '\\\]') + '=([^&#]*)')
                     .exec(root.location.search);
     if (!results) return '';
     else return decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  function $(id) {
+    return doc.getElementById(id);
   }
 
   function loadFile() {
@@ -38,14 +42,18 @@
   }
 
   function render(content) {
-    doc.getElementById('article').innerHTML = root.marked(content);
+    article.innerHTML = root.marked(content);
   }
 
   function auth(result) {
     if (result && !result.error)
       loadFile();
-    else
-      gapi.auth.authorize({'client_id': clientID, 'scope': scope, 'immediate': false}, auth);
+    else {
+      article.innerHTML = '<div id="install">Install</div>';
+      $('install').onclick = function() {
+        gapi.auth.authorize({'client_id': clientID, 'scope': scope, 'immediate': false}, auth);
+      };
+    }
   }
 
   root.app = function() {
@@ -61,6 +69,8 @@
         return hljs.highlight(lang, code).value;
       }
     });
+
+    article = $('article');
 
     gapi.auth.authorize({'client_id': clientID, 'scope': scope, 'immediate': true}, auth);
   };

@@ -311,6 +311,17 @@ pre .xml .cdata {
   opacity: 0.5;
 }
 
+#install {
+  background: #3C3F41;
+  color: #FFF;
+  font-size: 2rem;
+  margin: 2rem auto;
+}
+
+#install:hover {
+  background: #09C;
+}
+
 @media screen and (min-width: 480px) {
   html {
     font-size: 14px;
