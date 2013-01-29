@@ -46,8 +46,10 @@
   }
 
   function auth(result) {
-    if (result && !result.error)
+    if (result && !result.error) {
+      article.innerHTML = '';
       loadFile();
+    }
     else {
       article.innerHTML = '<div id="install">Install</div>';
       $('install').onclick = function() {
