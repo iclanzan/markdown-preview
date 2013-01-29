@@ -96,7 +96,7 @@ h1, h2, h3, h4, h5, h6, pre, blockquote {
   margin: 2em 0 1em;
 }
 
-h1, h2, h3, h4, h5, h6, pre, p, blockquote {
+h1, h2, h3, h4, h5, h6, pre, p, blockquote, ul ul, ul ol, ol ol, ol ul {
   padding: 0 2rem;
 }
 
