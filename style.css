@@ -36,11 +36,11 @@ article {
 }
 
 article>:first-child {
-  margin-top: 2rem;
+  margin-top: 5%;
 }
 
 article>:last-child {
-  margin-bottom: 2rem;
+  margin-bottom: 5%;
 }
 
 table {
@@ -97,11 +97,11 @@ h1, h2, h3, h4, h5, h6, pre, blockquote {
 }
 
 h1, h2, h3, h4, h5, h6, pre, p, blockquote, ul ul, ul ol, ol ol, ol ul {
-  padding: 0 2rem;
+  padding: 0 5%;
 }
 
 ul, ol {
-  padding: 0 4rem;
+  padding: 0 10%;
 }
 
 ul p, ol p {
