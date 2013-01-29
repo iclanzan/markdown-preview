@@ -9,36 +9,36 @@
   outline: 0;
   padding: 0;
   vertical-align: baseline;
-  -webkit-font-smoothing: antialiased;
 }
 
 html {
   height: 100%;
   background: #F4F5F6;
-  font: 12px/1.4 "Helvetica Neue", "Ubuntu", "Roboto", "Segoe UI", "Lucida Grande", Arial, sans-serif;
+  font: 14px/1.4 "Helvetica Neue", "Ubuntu", "Roboto", "Segoe UI", "Lucida Grande", Arial, sans-serif;
   color: #5A5B5C;
+  -webkit-font-smoothing: antialiased;
 }
 
 body {
   height: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
+  text-align: center;
 }
 
 article {
+  display: inline-block;
+  text-align: left;
   background: #FFF;
-  padding: 2rem 0;
-  border-left: 1px solid #EAEBEC;
-  border-right: 1px solid #EAEBEC;
+  box-shadow: 0 0 0 1px #EAEBEC;
   min-height: 100%;
+  max-width: 800px;
 }
 
 article>:first-child {
-  margin-top: 0;
+  margin-top: 2rem;
 }
 
 article>:last-child {
-  margin-bottom: 0;
+  margin-bottom: 2rem;
 }
 
 table {
@@ -82,7 +82,7 @@ del {
   text-decoration: line-through;
 }
 
-p {
+p, ul, ol {
   margin: 1rem 0;
 }
 
@@ -90,7 +90,7 @@ li {
   margin: .2rem 0;
 }
 
-h1, h2, h3, h4, h5, h6, pre, ul, ol, blockquote {
+h1, h2, h3, h4, h5, h6, pre, blockquote {
   margin: 2em 0 1em;
 }
 
@@ -98,8 +98,8 @@ h1, h2, h3, h4, h5, h6, pre, p, ul, ol, blockquote {
   padding: 0 2rem;
 }
 
-ul, ol {
-  list-style-position: inside;
+ul p, ol p {
+  padding: 0;
 }
 
 h1 {
@@ -166,7 +166,7 @@ code {
 pre {
   overflow: auto;
   margin-bottom: 1.6rem;
-  padding: 2rem;
+  padding: 1rem 2rem;
   font-size: .9rem;
   border-top: 1px solid #EAEBEC;
   border-bottom: 1px solid #EAEBEC;
@@ -179,6 +179,10 @@ pre code {
   background: none;
   border: 0;
   padding: 0;
+}
+
+blockquote pre {
+  border: 1px solid #EAEBEC;
 }
 
 /*
@@ -329,17 +333,11 @@ pre .xml .cdata {
 
 @media screen and (min-width: 480px) {
   html {
-    font-size: 14px;
-  }
-}
-
-@media screen and (min-width: 800px) {
-  html {
     font-size: 16px;
   }
 }
 
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 800px) {
   html {
     font-size: 18px;
   }
