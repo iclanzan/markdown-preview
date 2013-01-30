@@ -20,7 +20,9 @@
   }
 
   // Load analytics
-  require('//d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/892gioqtse/analytics.min.js');
+  require('//d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/892gioqtse/analytics.min.js', function() {
+    analytics = root.analytics;
+  });
   analytics.pageview();
 
   function require(url, callback) {
