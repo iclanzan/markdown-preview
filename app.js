@@ -4,11 +4,11 @@
   var clientID = '589507031071.apps.googleusercontent.com',
       scope = 'https://www.googleapis.com/auth/drive.file https://www.googleapis.com/auth/drive.install',
       doc = root.document,
-      analytics = root.analytics || [],
+      analytics = root.analytics = [],
       marked, hljs, gapi, article;
 
   // Load analytics
-  require('d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/892gioqtse/analytics.min.js');
+  require('//d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/892gioqtse/analytics.min.js');
   analytics.push(['pageview']);
 
   function require(url, callback) {
